@@ -44,7 +44,16 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 We can leave the default values that `ssh-keygen` prompts (key location and no passphrase); however, we need to keep the key location at hand (`~/.ssh/id_rsa` by default) because we will need it as an input in our terraform commands/script.
 
 ### Executing the terraform scripts
-Now that we can execute the terraform commands needed to bring out the Azure infrastructure, we just need to add the necessary parameters to the code via the command line or with a `.tfvars` file. This repository includes a [sample file](https://github.com/andresrcb/aks-private-cluster/blob/main/terraform/terraform.tfvars.sample) that can be copied a starting point.
+First, clone this repository and go into the `terraform/` folder.
+
+```sh
+# First navigate to the location where you want this repo.
+# Then, run:
+git clone https://github.com/andresrcb/aks-private-cluster.git
+cd aks-private-cluster/terraform
+```
+
+Now that we can execute the terraform commands needed to bring out the Azure infrastructure, we just need to add the necessary parameters to the code via the command line or with a `.tfvars` file. This repository includes a [sample file](/terraform/terraform.tfvars.sample) that can be copied a starting point.
 
 Assuming that our SSH key is at `~/.ssh/id_rsa`, we can create a `terraform.tfvars` file to avoid having to pass them in the CLI, setting them as environment variables or being prompted by them when running terraform plan/apply (to override other values, check out the sample file).
 

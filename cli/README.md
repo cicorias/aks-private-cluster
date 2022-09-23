@@ -129,7 +129,7 @@ az aks command invoke \
 ### Connecting using a jump box and Azure Bastion
 While Azure AKS Command Invoke gets the job done for most commands, it can be slow and cumbersome for more involved administration of the cluster. Using a bastion is far better for most admnistrators, and we can deploy a basic VM in the cluster's network for that.
 
-Please note that we will be using the same network and subnet for everything in this guide, but it's recommended to segment these components into their own subnets in production environmnets (e.g., one subnet for the jump box, one for the cluster, and one for the bastion).
+Please note that we will be using the same network and subnet for everything in this guide (except the bastion server which requires its own subnet), but it's recommended to segment these components into their own subnets in production environmnets (e.g., one subnet for the jump box, one for the cluster, and one for the bastion).
 
 First, we'll create a jump box VM in our network. You can replace the image used with a different Operating System or version of Ubuntu. Note that SSH keys will be generated with this command and must be stored for later use (AAD login for VMs is not in the scope of these instructions).
 
