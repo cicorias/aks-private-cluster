@@ -1,5 +1,5 @@
 # Using Azure CLI for Deployment
-This section shows how to deploy and manage a private AKS cluster using your local console (as long as you have access to Azure and admin rights in your device). Follow along in order or the system won't work.
+This section shows how to deploy and manage a private AKS cluster using your local console (as long as you have access to Azure and admin rights in your device) and the [Azure CLI tool](https://learn.microsoft.com/en-us/cli/azure/). Follow along in order or the system won't work.
 
 Note that this is not the recommended way to deploy and maintain infrastructure. Ideally, you would use IaC (Infrastructure as Code) and avoid this manual process; however, this is a great way to understand every part of the solution at a high level. Once you familiarize yourself with this section, I recommend using Terraform to bring up infrastructure in the future.
 
@@ -11,7 +11,7 @@ Note that this is not the recommended way to deploy and maintain infrastructure.
 ## Setting up the environment
 Once you have an [Azure account](https://azure.microsoft.com/en-us/free/search/), an Azure subscription, and can sign into the [Azure Portal](https://portal.azure.com/), open a console session.
 
-You can install running the command below in Linux or MacOS, or you can look for [alternatives here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+You can install the Azure CLI tool by running the command below in Linux or MacOS, or you can look for [alternatives here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 ```sh
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
