@@ -39,9 +39,9 @@ export REGION=eastus
 export RESOURCE_GROUP=rg-private-aks-cli
 export CLUSTER_NAME=aks-private-cluster
 export VNET_NAME=vnet-private-aks
-export VNET_CIDR=172.16.0.0/16
+export VNET_CIDR=172.80.0.0/16
 export SUBNET_NAME=subnet-private-aks
-export SUBNET_CIDR=172.16.0.0/20
+export SUBNET_CIDR=172.80.0.0/20
 export CLUSTER_IDENTITY=identity-private-aks-cluster
 export JUMPBOX_NAME=vm-jumpbox
 export JUMPBOX_ADMIN_NAME=azureuser
@@ -97,7 +97,7 @@ az aks create --name $CLUSTER_NAME \
                 --enable-private-cluster \
                 --network-plugin azure \
                 --vnet-subnet-id $SUBNET_ID \
-                --docker-bridge-address 172.17.0.1/16 \
+                --docker-bridge-address 172.81.0.1/16 \
                 --dns-service-ip 10.2.0.10 \
                 --service-cidr 10.2.0.0/24
 ```

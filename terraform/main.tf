@@ -135,6 +135,19 @@ resource "azurerm_network_interface" "jumpbox_nic" {
 
 # NOTE: this machine will use default outbound access to reach the internet.
 # If you cannot reach the internet, your network or VMs might have that option disabled.
+
+locals {
+  custom_data = <<CUSTOM_DATA
+#!/bin/bashsudo 
+apt update
+apt install -y curl net-tools
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+mv kubectl /usr/local/bin/
+chmod +x /usr/local/bin/kubectl
+  CUSTOM_DATA
+}
+
 resource "azurerm_virtual_machine" "jumpbox_vm" {
     name                  = var.jumpbox_name
     location              = azurerm_resource_group.rg.location
@@ -159,6 +172,7 @@ resource "azurerm_virtual_machine" "jumpbox_vm" {
     os_profile {
     computer_name  = var.jumpbox_name
     admin_username = var.jumpbox_admin_name
+    custom_data    = base64encode(local.custom_data)
     }
 
     os_profile_linux_config {
