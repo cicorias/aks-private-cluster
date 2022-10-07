@@ -23,7 +23,7 @@ variable "vnet_name" {
 variable "vnet_cidr" {
   type        = string
   description = "CIDR range for the virtual network"
-  default     = "172.80.0.0/16"
+  default     = "172.16.0.0/16"
 }
 
 variable "subnet_name" {
@@ -35,7 +35,7 @@ variable "subnet_name" {
 variable "subnet_cidr" {
   type        = string
   description = "CIDR range for the cluster subnet"
-  default     = "172.80.0.0/20"
+  default     = "172.16.0.0/20"
 }
 
 variable "cluster_name" {
@@ -65,19 +65,20 @@ variable "cluster_identity" {
 variable "cluster_docker_bridge_address" {
   type        = string
   description = "CIDR range for the docker bridge in the cluster"
-  default     = "172.81.0.1/16"
+  # TODO: make single address.
+  default     = "172.17.0.1/16"
 }
 
 variable "cluster_dns_service_ip_address" {
   type        = string
   description = "IP address for the cluster's DNS service"
-  default     = "172.80.16.254"
+  default     = "172.16.16.254"
 }
 
 variable "cluster_service_ip_range" {
   type        = string
   description = "CIDR range for the cluster's kube-system services"
-  default     = "172.80.16.0/24"
+  default     = "172.16.16.0/24"
 }
 
 variable "default_node_pool_vm_size" {
@@ -113,7 +114,7 @@ variable "bastion_public_ip_name" {
 variable "bastion_subnet_cidr" {
   type        = string
   description = "CIDR range for the cluster subnet"
-  default     = "172.80.255.0/24"
+  default     = "172.16.255.0/24"
 }
 
 variable "bastion_name" {
